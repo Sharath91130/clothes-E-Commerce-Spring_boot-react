@@ -110,7 +110,7 @@ Provide payment confirmations for users and admins.</br>
 
 ## Sql ER diagram
 
-![Alt text](f/sales.jpg "Title")
+![Alt text](f/salespng.png "Title")
 
 
 
