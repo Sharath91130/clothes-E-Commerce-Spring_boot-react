@@ -27,7 +27,16 @@ Docker: Simplify deployment.
 Docker Compose: Manage multiple containers.
 
 ## Services
- #
+ # 1. Authentication Service 🔒
+ Purpose
+ Handle secure login and authentication for Admins and Customers. Manage role-based access control.
+
+   ## Features
+Admin Login Endpoint: /admin/login
+Customer Login Endpoint: /user/login
+JWT Token: Generate and validate secure JSON Web Tokens for sessions.
+Password Security: Hash and store passwords securely.
+
 
 
 
