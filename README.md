@@ -9,6 +9,24 @@ Docker & Docker Compose
 ## Clone
 #Clone this repository: git clone https://github.com/Sharath91130/clothes-E-Commerce-Spring_boot-react.git
 
+ ## Technology Stack 💻
+## Frontend
+React.js: Build interactive user interfaces.
+CSS/Bootstrap: Style the application.
+## Backend
+Spring Boot: Build robust backend services.
+Spring Web: Create REST APIs.
+Spring Data JPA: Manage database connections.
+Spring Security: Secure user accounts.
+Database
+MySQL: Store data such as products, users, and orders.
+Payment Gateway
+Razorpay, PayPal, Stripe: Handle secure payments.
+## DevOps(optional)
+Docker: Simplify deployment.
+Docker Compose: Manage multiple containers.
+
+
 
 
 
