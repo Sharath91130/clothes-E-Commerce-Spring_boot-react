@@ -53,6 +53,63 @@ Update profiles (name, address, contact information).</br>
 Reset and manage passwords.</br>
 
 
+## 3. Product Management Service 🛍️
+Purpose</br>
+Enable Admins to manage products and Customers to browse them.
+
+**Features**</br>
+
+Admin Features:</br>
+Add, update, delete, and view product inventory.</br>
+Categorize products and manage tags.</br>
+Upload and manage product images.</br>
+Customer Features:</br>
+Browse products by category, name, or tags.</br>
+View product details, including descriptions, prices, and availability.</br>
+
+
+
+## 4. Cart Management Service 🛒
+Purpose</br>
+Manage customer shopping carts efficiently.
+
+**Features** </br>
+
+Add products to the cart.</br>
+View cart details, including items, quantity, and price breakdown.</br>
+Update cart items (change quantities, remove items).</br>
+Clear the entire cart</br>
+
+
+## 5. Order Management Service 📃
+Purpose</br>
+Handle the entire order lifecycle for both Customers and Admins.
+
+**Features**
+
+Customer Features:</br>
+Place orders using products from the cart.</br>
+Select shipping options (e.g., standard or express).</br>
+View order history and order details.</br>
+Track order status (Pending, Approved, Shipped, Delivered).</br>
+Admin Features:</br>
+View all orders placed by customers.</br>
+Update order statuses.</br>
+
+## 6. Payment Service 💳
+Purpose</br>
+Facilitate secure online transactions for the platform.
+
+**Features**
+
+Integrate with payment gateways like Razorpay, Stripe, or PayPal.</br>
+Handle payment requests and responses securely.</br>
+Store transaction details, including amount, method, and status.</br>
+Provide payment confirmations for users and admins.</br>
+
+
+
+
 
 
 
