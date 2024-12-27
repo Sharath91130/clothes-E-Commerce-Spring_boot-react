@@ -43,13 +43,13 @@ Manage user accounts for both Admins and Customers.
 
 **Features**</br>
 <br>
-**Admin Features**:
-View all users.
-Update user roles and statuses.
-Deactivate or delete user accounts.
-Customer Features:
-Register with email verification.
-Update profiles (name, address, contact information).
+**Admin Features**:</br>
+View all users.</br>
+Update user roles and statuses.</br>
+Deactivate or delete user accounts.</br>
+Customer Features:</br>
+Register with email verification.</br>
+Update profiles (name, address, contact information).</br>
 Reset and manage passwords.</br>
 
 
