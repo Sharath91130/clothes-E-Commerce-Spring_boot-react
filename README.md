@@ -32,7 +32,7 @@ Docker Compose: Manage multiple containers.
  Handle secure login and authentication for Admins and Customers. Manage role-based access control.
 
    ## Features
-Admin Login Endpoint: /admin/login
+Admin Login Endpoint: /admin/login</br>
 Customer Login Endpoint: /user/login
 JWT Token: Generate and validate secure JSON Web Tokens for sessions.
 Password Security: Hash and store passwords securely.
