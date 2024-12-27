@@ -37,6 +37,22 @@ Customer Login Endpoint: /user/login</br>
 JWT Token: Generate and validate secure JSON Web Tokens for sessions.</br>
 Password Security: Hash and store passwords securely.</br>
 
+## 2. User Management Service 📋
+Purpose
+Manage user accounts for both Admins and Customers.
+
+**Features**</br>
+<br>
+**Admin Features**:
+View all users.
+Update user roles and statuses.
+Deactivate or delete user accounts.
+Customer Features:
+Register with email verification.
+Update profiles (name, address, contact information).
+Reset and manage passwords.</br>
+
+
 
 
 
