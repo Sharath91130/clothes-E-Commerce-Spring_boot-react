@@ -26,6 +26,13 @@ Razorpay, PayPal, Stripe: Handle secure payments.
 Docker: Simplify deployment.
 Docker Compose: Manage multiple containers.
 
+## Services
+ #
+
+
+
+
+
 
 
 
