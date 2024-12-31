@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private  final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -18,8 +19,9 @@ public class UserService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
+
     public User registerUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         // Check if username or email already exists
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new RuntimeException("Username is already taken");
@@ -30,6 +32,8 @@ public class UserService {
         }
 
 
+
+        user.setPassword(user.getPassword());
 
         // Save the user
         return userRepository.save(user);
