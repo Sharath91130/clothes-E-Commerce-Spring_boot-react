@@ -108,9 +108,6 @@ Store transaction details, including amount, method, and status.</br>
 Provide payment confirmations for users and admins.</br>
 
 
-## Sql ER diagram
-
-![Alt text](f/salespng.png "Title")
 
 
 
