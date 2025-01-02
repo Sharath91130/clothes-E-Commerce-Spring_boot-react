@@ -1,11 +1,13 @@
 package com.kodnest.sales_backend.Enitity;
 
 import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name="user1")
+@Component
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

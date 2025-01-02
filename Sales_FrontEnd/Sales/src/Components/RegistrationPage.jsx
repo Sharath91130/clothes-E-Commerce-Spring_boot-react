@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react';
+import LoginPage from "./LoginPage.jsx";
 
 export default function RegistrationPage() {
     // State variables to handle user inputs
@@ -110,7 +111,7 @@ export default function RegistrationPage() {
                     </button>
                 </form>
                 <p className="text-center mt-3">
-                    Already a user?{' '}
+                    Already a user?
                     <a href="/login" className="text-primary">
                         Log in here
                     </a>

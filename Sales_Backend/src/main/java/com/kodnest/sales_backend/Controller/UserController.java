@@ -30,4 +30,18 @@ public class UserController {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> Login(@RequestBody User user) {
+
+
+        if (userService.isValid(user)) {
+            User data =userService.getbyUsername(user.getUsername());
+
+            return ResponseEntity.ok(Map.of("data", data));
+        }
+        return ResponseEntity.badRequest().body(Map.of("error", "invalid"));
+
+
+    }
 }
