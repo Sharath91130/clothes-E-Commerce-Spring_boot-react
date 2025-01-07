@@ -6,6 +6,8 @@ export default function LoginPage() {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
         setError(null);
@@ -23,9 +25,9 @@ export default function LoginPage() {
                 const {role} = data.data;
                 console.log(role)
                 if (role==='ADMIN') {
-                    window.location.href = 'https://www.flipkart.com';
+                    navigate("/customerhome");
                 } else  if(role==='CUSTOMER'){
-                    window.location.href = 'https://www.amazon.com';
+                     navigate("/customerhome");
                 }
 
             }

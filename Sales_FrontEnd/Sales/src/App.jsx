@@ -2,11 +2,14 @@ import { useState } from 'react'
 
 
 import './App.css'
+import './index.css'
 import RegistrationPage from "./Components/RegistrationPage.jsx";
 import LoginPage from "./Components/LoginPage.jsx";
 import {BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
 import NavBar from "./Components/Nabar.jsx";
 import LoginPage1 from "./Components/LoginPageAuth.jsx";
+import SalesSavvy from "./Product1.jsx";
+import Products from "./Product1.jsx";
 
 
 function App() {
@@ -14,19 +17,21 @@ function App() {
 
   return (
     <>
-        <BrowserRouter>
-            <NavBar />
+        {/*<BrowserRouter>*/}
+        {/*    <NavBar />*/}
 
 
 
-            <Routes>
-                <Route path={"/register"} element={<RegistrationPage/>}></Route>
-                <Route path={"/login"} element={<LoginPage1/>}></Route>
+        {/*    <Routes>*/}
+        {/*        <Route path={"/"} element={<RegistrationPage/>}></Route>*/}
+        {/*        <Route path={"/login"} element={<LoginPage1/>}></Route>*/}
+        {/*        <Route path={"/customerhome"} element={<SalesSavvy />}></Route>*/}
 
 
-            </Routes>
+        {/*    </Routes>*/}
 
-        </BrowserRouter>
+        {/*</BrowserRouter>*/}
+        <Products />
     </>
   )
 }

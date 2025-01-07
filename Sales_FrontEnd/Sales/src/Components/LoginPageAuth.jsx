@@ -29,9 +29,9 @@ export default function LoginPage1() {
 
                 // Redirect user based on their role
                 if (data.role === 'CUSTOMER') {
-                    window.location.href = 'https://www.amazon.com';
+                    navigate("/customerhome");
                 } else if (data.role === 'ADMIN') {
-                    window.location.href = 'https://www.flipkart.com';
+                    navigate("/customerhome");
                 } else {
                     throw new Error('Invalid user role');
                 }

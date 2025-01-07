@@ -5,13 +5,10 @@ import com.kodnest.sales_backend.Enitity.User;
 import com.kodnest.sales_backend.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-
-    @RestController
+@CrossOrigin(origins = "http://localhost:5173")
+@RestController
 	@RequestMapping("/api/users")
 	public class UserController {
     private final UserService userService;
@@ -19,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 	    public UserController(UserService userService) {
 	        this.userService = userService;
 	    }
-	    @PostMapping("/register")
+
+		@CrossOrigin(origins = "http://localhost:5173")
+		@PostMapping("/register")
 	    public ResponseEntity<?> registerUser(@RequestBody User user) {
 	        try {
 	            User registeredUser = userService.registerUser(user);
