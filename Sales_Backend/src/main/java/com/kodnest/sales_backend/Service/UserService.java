@@ -36,31 +36,14 @@ public class UserService {
 
 
 
-        user.setPassword(user.getPassword());
+
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+
 
         // Save the user
         return userRepository.save(user);
     }
-    public  boolean isValid(User user){
-       User user1= getbyUsername(user.getUsername());
-       String password=user.getPassword();
 
-       if(user1==null){
-           return false;
-       }
-
-       if(user1.getPassword().equals(password) ){
-           return  true;
-       }
-
-      return false;
-
-
-
-    }
-    public User getbyUsername(String name){
-
-        return userRepository.findByUsername(name).orElse(null);
-    }
 
 }
