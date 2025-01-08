@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaShoppingCart } from "react-icons/fa"; // Importing the cart icon from react-icons
+import { FaShoppingCart } from "react-icons/fa";
+import {Button} from "react-bootstrap"; // Importing the cart icon from react-icons
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [username, setUsername] = useState("John Doe"); // Replace with dynamic username if needed
+    const[count ,setCount]=useState(0)
+    const inc=()=>{
+        if(count<20) {
+            setCount(count + 1)
+        }
+    }
+
+
 
     useEffect(() => {
         // Fetch data from API
@@ -42,7 +51,7 @@ const Products = () => {
                 {/* Cart Icon with Badge */}
                 <div className="d-flex align-items-center">
                     <FaShoppingCart size={24} />
-                    <span className="badge bg-danger ms-2">3</span> {/* Example for 3 items in the cart */}
+                    <span className="badge bg-danger ms-2">   <h1 >{count}</h1></span> {/* Example for 3 items in the cart */}
                 </div>
 
                 {/* Dropdown for Username */}
@@ -104,6 +113,7 @@ const Products = () => {
                                 <p className="card-text text-muted">{product.description}</p>
                                 <p className="text-primary fw-bold">${product.price.toFixed(2)}</p>
                                 <p className="text-muted">Stock: {product.stock}</p>
+                                <Button onClick={inc}> Add Cart</Button>
                             </div>
                         </div>
                     </div>
