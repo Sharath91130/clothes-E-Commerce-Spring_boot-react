@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity
-@Table(name="user1")
+@Table(name="users")
 @Component
 public class User {
     @Id
