@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaShoppingCart } from "react-icons/fa";
-import {Button} from "react-bootstrap"; // Importing the cart icon from react-icons
+import {Button} from "react-bootstrap";
+import {CategoryNavigation} from "./Components/CategoriesNavBar.jsx";
+import './assets/style.css'// Importing the cart icon from react-icons
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [username, setUsername] = useState("John Doe"); // Replace with dynamic username if needed
+    const [username, setUsername] = useState("Sharath "); // Replace with dynamic username if needed
     const[count ,setCount]=useState(0)
     const inc=()=>{
         if(count<20) {
@@ -18,7 +20,7 @@ const Products = () => {
 
     useEffect(() => {
         // Fetch data from API
-        fetch("http://localhost:9090/api/products")
+        fetch("http://localhost:9090/api/products?category=Shirts")
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -97,7 +99,7 @@ const Products = () => {
             </div>
 
             {/* Product grid */}
-            <h1 className="text-center mb-4">Product List</h1>
+            <div><CategoryNavigation /></div>
             <div className="row">
                 {products.map((product, index) => (
                     <div key={product.product_id} className="col-md-3 mb-4">
