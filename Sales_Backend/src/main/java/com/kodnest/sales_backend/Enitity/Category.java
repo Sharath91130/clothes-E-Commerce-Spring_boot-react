@@ -12,15 +12,7 @@ public class Category {
     @Column(nullable = false, unique = true)
     private String categoryName;
 
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public Category() {
-
-    }
-// Getters and Setters
-
+    // Getters and Setters
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -36,4 +28,19 @@ public class Category {
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
     }
+    public Category() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public Category(Integer categoryId, String categoryName) {
+        super();
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+    }
+
+    public Category(String categoryName) {
+        super();
+        this.categoryName = categoryName;
+    }
+
 }

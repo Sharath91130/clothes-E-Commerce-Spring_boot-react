@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaShoppingCart } from "react-icons/fa";
-import {Button} from "react-bootstrap";
-import {CategoryNavigation} from "./Components/CategoriesNavBar.jsx";
-import './assets/style.css'// Importing the cart icon from react-icons
+import {Button} from "react-bootstrap"; // Importing the cart icon from react-icons
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [username, setUsername] = useState("Sharath "); // Replace with dynamic username if needed
+    const [username, setUsername] = useState("John Doe"); // Replace with dynamic username if needed
     const[count ,setCount]=useState(0)
     const inc=()=>{
         if(count<20) {
@@ -20,7 +18,7 @@ const Products = () => {
 
     useEffect(() => {
         // Fetch data from API
-        fetch("http://localhost:9090/api/products?category=Shirts")
+        fetch("http://localhost:9090/api/products")
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -39,67 +37,67 @@ const Products = () => {
     return (
         <div className="container my-4" >
             <div style={{backgroundColor:"#ff69b4"}}>
-            {/* Header with Amazon logo and Cart */}
-            <header className="d-flex justify-content-between align-items-center mb-4">
-                {/* Amazon Logo */}
-                <div className="logo">
-                    <img
-                        src="https://static.vecteezy.com/system/resources/previews/022/663/459/non_2x/shopping-bag-logo-icon-design-template-isolated-vector.jpg" // Amazon logo URL
-                        alt="Amazon Logo"
-                        style={{ width: "120px", height: "auto", backgroundColor:"#ff69b4" }}
-                    />
-                </div>
+                {/* Header with Amazon logo and Cart */}
+                <header className="d-flex justify-content-between align-items-center mb-4">
+                    {/* Amazon Logo */}
+                    <div className="logo">
+                        <img
+                            src="https://static.vecteezy.com/system/resources/previews/022/663/459/non_2x/shopping-bag-logo-icon-design-template-isolated-vector.jpg" // Amazon logo URL
+                            alt="Amazon Logo"
+                            style={{ width: "120px", height: "auto", backgroundColor:"#ff69b4" }}
+                        />
+                    </div>
 
-                {/* Cart Icon with Badge */}
-                <div className="d-flex align-items-center">
-                    <FaShoppingCart size={24} />
-                    <span className="badge bg-danger ms-2">   <h1 >{count}</h1></span> {/* Example for 3 items in the cart */}
-                </div>
+                    {/* Cart Icon with Badge */}
+                    <div className="d-flex align-items-center">
+                        <FaShoppingCart size={24} />
+                        <span className="badge bg-danger ms-2">   <h1 >{count}</h1></span> {/* Example for 3 items in the cart */}
+                    </div>
 
-                {/* Dropdown for Username */}
-                <div className="dropdown">
-                    <button
-                        className="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        {username}
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <button
-                                className="dropdown-item"
-                                onClick={() => alert("Profile clicked")}
-                            >
-                                Profile
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                className="dropdown-item"
-                                onClick={() => alert("Settings clicked")}
-                            >
-                                Settings
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                className="dropdown-item"
-                                onClick={() => alert("Logout clicked")}
-                            >
-                                Logout
-                            </button>
-                        </li>
-                    </ul>
-                </div>
+                    {/* Dropdown for Username */}
+                    <div className="dropdown">
+                        <button
+                            className="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            {username}
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <button
+                                    className="dropdown-item"
+                                    onClick={() => alert("Profile clicked")}
+                                >
+                                    Profile
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    className="dropdown-item"
+                                    onClick={() => alert("Settings clicked")}
+                                >
+                                    Settings
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    className="dropdown-item"
+                                    onClick={() => alert("Logout clicked")}
+                                >
+                                    Logout
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
 
-            </header>
+                </header>
             </div>
 
             {/* Product grid */}
-            <div><CategoryNavigation /></div>
+            <h1 className="text-center mb-4">Product List</h1>
             <div className="row">
                 {products.map((product, index) => (
                     <div key={product.product_id} className="col-md-3 mb-4">
