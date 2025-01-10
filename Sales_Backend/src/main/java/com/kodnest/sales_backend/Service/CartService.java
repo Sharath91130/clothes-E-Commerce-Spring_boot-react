@@ -66,7 +66,7 @@ public class CartService {
             products.add(productDetails);
 
             // Update overall total price
-            overallTotalPrice += cartItem.getQuantity() * product.getPrice().doubleValue();
+            overallTotalPrice += (int) (cartItem.getQuantity() * product.getPrice().doubleValue());
         }
 
         // Prepare the final cart response
@@ -77,5 +77,24 @@ public class CartService {
         response.put("cart", cart);
 
         return response;
+    }
+
+    public void addToCart(int userId, int productId, int quantity) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + userId));
+
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found with ID: " + productId));
+
+        Optional<CartItem> existingItem = cartRepository.findByUserAndProduct(user, product);
+
+        if (existingItem.isPresent()) {
+            CartItem cartItem = existingItem.get();
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+            cartRepository.save(cartItem);
+        } else {
+            CartItem newItem = new CartItem(user, product, quantity);
+            cartRepository.save(newItem);
+        }
     }
 }
