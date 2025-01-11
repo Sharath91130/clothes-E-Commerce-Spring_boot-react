@@ -97,4 +97,49 @@ public class CartService {
             cartRepository.save(newItem);
         }
     }
+    public void deleteCartItem(int userId, int productId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+
+        cartRepository.deleteCartItem(userId, productId);
+    }
+    public void updateCartItemQuantity(int userId, int productId, int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative");
+        }
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with ID " + userId + " not found"));
+
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("Product with ID " + productId + " not found"));
+
+        Optional<CartItem> existingItem = cartRepository.findByUserAndProduct(userId, productId);
+
+        if (existingItem.isPresent()) {
+            CartItem cartItem = existingItem.get();
+            if (quantity == 0) {
+                cartRepository.delete(cartItem);
+            } else {
+                cartItem.setQuantity(quantity);
+                cartRepository.save(cartItem);
+            }
+        } else if (quantity > 0) {
+            CartItem newCartItem = new CartItem();
+            newCartItem.setUser(user);
+            newCartItem.setProduct(product);
+            newCartItem.setQuantity(quantity);
+            cartRepository.save(newCartItem);
+        }
+    }
+    @Autowired
+    private  CartItemRepository cartItemRepository;
+    public int getCartItemCountForUser(int userId) {
+        int itemCount = cartRepository.countCartItemsByUserId(userId);
+        return itemCount;
+    }
+
 }

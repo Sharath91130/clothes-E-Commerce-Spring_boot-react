@@ -100,4 +100,36 @@ public class CartController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteCartItem(@RequestBody Map<String, Object> request) {
+        String username = (String) request.get("username");
+        int productId = (int) request.get("productId");
+
+        // Fetch the user using username
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + username));
+
+        // Delete the cart item
+        cartService.deleteCartItem(user.getUserId(), productId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @PutMapping("/update")
+    public ResponseEntity<Void> updateCartItemQuantity(@RequestBody Map<String, Object> request) {
+        String username = (String) request.get("username");
+        int productId = (int) request.get("productId");
+        int quantity = (int) request.get("quantity");
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + username));
+
+        cartService.updateCartItemQuantity(user.getUserId(), productId, quantity);
+        return ResponseEntity.ok().build();
+    }
+    @GetMapping("/count/{userId}")
+    public ResponseEntity<Integer> getCartItemCount(@PathVariable int userId) {
+        int itemCount = cartService.getCartItemCountForUser(userId);
+        return ResponseEntity.ok(itemCount);
+    }
+
+
 }
